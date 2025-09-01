@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact me - N.KAILASH</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("1GOLC1gOMs0h8WWJb"); // Replace with your Public Key
+    })();
+
+    function sendMail(e) {
+      e.preventDefault(); // Prevent page reload
+
+      emailjs.sendForm("service_kailash", "template_bhygv5w", "#contact-form")
+      .then(function(response) {
+        // Show success popup
+        alert("✅ Message sent successfully!");
+        document.getElementById("contact-form").reset();
+      }, function(error) {
+        // Show error popup
+        alert("❌ Failed to send message. Please try again.");
+      });
+    }
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" type="image/png" href="Elegante Logo _N.K._ en Gradiente.png">
   <style>
@@ -161,7 +181,7 @@ main {
       Fill out the form below, and I’ll get back to you as soon as possible.
     </p>
 
-    <form action="#" method="POST" class="bg-gray-800 p-8 rounded-lg shadow-lg max-w-2xl mx-auto">
+    <form id="contact-form" onsubmit="sendMail(event)" class="bg-gray-800 p-8 rounded-lg shadow-lg max-w-2xl mx-auto">
       <div class="mb-6">
         <label for="name" class="block text-gray-300 mb-2">Name</label>
         <input type="text" id="name" name="name" placeholder="Your Name"
@@ -213,6 +233,7 @@ main {
 </footer>
 </body>
 </html>
+
 
 
 
