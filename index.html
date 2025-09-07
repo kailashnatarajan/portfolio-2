@@ -150,10 +150,19 @@
 
   <!-- Login form container -->
   <div class="login-container">
-    <h2>Welcome Back</h2>
+    <h2>Login to Portfolio</h2>
+
+    <!-- Username -->
     <input type="text" id="username" placeholder="Enter Your Name">
+
+    <!-- Password -->
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <!-- Button -->
     <button onclick="validateLogin()">Login</button>
-    <p class="error" id="errorMsg">Invalid name! Please try again.</p>
+
+    <!-- Error message -->
+    <p class="error" id="errorMsg">Invalid credentials! Please try again.</p>
   </div>
 
   <script>
@@ -213,9 +222,10 @@
   /* === LOGIN VALIDATION === */
   function validateLogin() {
     const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
     const errorMsg = document.getElementById('errorMsg');
 
-    if (username.toLowerCase() === "protagonistkanth") {
+    if (password === "protagonistkanth") {
       window.location.href = "main.html"; // Redirect to your portfolio page
     } else {
       errorMsg.style.display = "block";
