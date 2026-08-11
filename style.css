@@ -1,0 +1,218 @@
+/* ==========================================================================
+   N.KAILASH — shared site stylesheet
+   Palette: near-black bg, cyan + violet + pink accents, HUD/terminal motif
+   ========================================================================== */
+
+:root{
+  --bg:#05070d;
+  --panel:#0d1526;
+  --panel-2:#0b1220;
+  --cyan:#4bf5e0;
+  --violet:#b06bff;
+  --pink:#ff5da2;
+  --text:#e6f1f5;
+  --muted:#8393a8;
+  --border:rgba(75,245,224,0.16);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  font-family:'Space Grotesk',sans-serif;
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(176,107,255,0.10), transparent 50%),
+    radial-gradient(ellipse at 85% 15%, rgba(75,245,224,0.08), transparent 50%),
+    var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  display:flex;flex-direction:column;
+}
+main{flex:1;}
+a{color:inherit;}
+img{max-width:100%;}
+
+/* drifting HUD grid backdrop, used site-wide */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size:44px 44px;
+  z-index:-1;
+  animation:moveGrid 24s linear infinite;
+}
+@keyframes moveGrid{from{background-position:0 0;}to{background-position:44px 44px;}}
+
+/* ---------- Nav ---------- */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(6,10,20,0.72);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav-wrap{
+  max-width:1200px;margin:0 auto;padding:16px 28px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+  font-family:'Orbitron',sans-serif;font-weight:700;font-size:20px;
+  letter-spacing:1px;
+  background:linear-gradient(90deg,var(--cyan),var(--violet));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  text-decoration:none;
+}
+nav.links{display:flex;gap:32px;}
+nav.links a{
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px;letter-spacing:1px;text-transform:uppercase;
+  text-decoration:none;color:var(--muted);
+  position:relative;transition:color .25s ease;
+  padding-bottom:4px;
+}
+nav.links a::after{
+  content:"";position:absolute;left:0;bottom:0;width:0;height:2px;
+  background:linear-gradient(90deg,var(--cyan),var(--violet));
+  transition:width .3s ease;
+}
+nav.links a:hover{color:var(--text);}
+nav.links a:hover::after{width:100%;}
+.nav-actions{display:flex;align-items:center;gap:16px;}
+.sign-in-btn{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
+  padding:10px 20px;border-radius:4px;
+  background:linear-gradient(90deg,var(--violet),var(--pink));
+  color:#08040b;font-weight:600;text-decoration:none;
+  transition:transform .2s ease, box-shadow .2s ease;
+  border:none;cursor:pointer;
+}
+.sign-in-btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(176,107,255,0.35);}
+
+/* ---------- Shared type + layout helpers ---------- */
+.section{max-width:1200px;margin:0 auto;padding:0 28px;}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:3px;
+  color:var(--cyan);text-transform:uppercase;margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--cyan);display:inline-block;}
+.page-heading{
+  text-align:center;margin:64px 0 34px;
+}
+.page-heading .eyebrow{justify-content:center;}
+.page-heading h2, h2.section-title{
+  font-family:'Orbitron',sans-serif;font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:700;color:#fff;
+}
+.gradient-heading{
+  font-family:'Orbitron',sans-serif;font-weight:900;
+  font-size:clamp(2rem,4.2vw,3.1rem);line-height:1.15;
+  background:linear-gradient(100deg,#fff 20%,var(--cyan) 55%,var(--violet) 90%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+
+/* HUD corner-bracket frame, the signature motif reused everywhere */
+.hud-frame{position:relative;}
+.hud-frame::before,.hud-frame::after,
+.hud-frame .c2,.hud-frame .c3{
+  content:"";position:absolute;width:24px;height:24px;border:2px solid var(--cyan);
+}
+.hud-frame::before{top:-10px;left:-10px;border-right:none;border-bottom:none;}
+.hud-frame::after{bottom:-10px;right:-10px;border-left:none;border-top:none;}
+.hud-frame .c2{top:-10px;right:-10px;border-left:none;border-bottom:none;}
+.hud-frame .c3{bottom:-10px;left:-10px;border-right:none;border-top:none;}
+
+.cta, .btn-primary{
+  display:inline-block;
+  font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;
+  padding:14px 28px;border-radius:4px;text-decoration:none;border:none;cursor:pointer;
+  background:linear-gradient(90deg,var(--cyan),var(--violet));
+  color:#03060c;font-weight:700;
+  box-shadow:0 0 26px rgba(75,245,224,0.18);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.cta:hover, .btn-primary:hover{transform:translateY(-1px);box-shadow:0 0 34px rgba(176,107,255,0.32);}
+
+/* ---------- Cards: panels used on About / Achievements / general content ---------- */
+.panel-card{
+  background:var(--panel);border:1px solid var(--border);border-radius:8px;
+  padding:36px;box-shadow:0 12px 40px rgba(0,0,0,0.4);
+}
+.panel-card p{font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:16px;}
+.panel-card p:last-child{margin-bottom:0;}
+.panel-card .accent{color:var(--pink);font-weight:600;}
+.panel-card .accent-cyan{color:var(--cyan);}
+.panel-card .accent-violet{color:var(--violet);}
+
+/* ---------- Flip cards (Thirukkural + Quotes) ---------- */
+.flip-card{
+  position:relative;overflow:hidden;border-radius:8px;
+  background:var(--panel);border:1px solid var(--border);
+  min-height:170px;box-shadow:0 12px 40px rgba(0,0,0,0.4);
+}
+.flip-face{
+  position:absolute;inset:0;padding:28px;
+  display:grid;align-content:center;justify-items:start;gap:8px;
+  transition:opacity .35s ease;
+}
+.flip-face h3{
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;
+  color:var(--cyan);text-transform:uppercase;
+}
+.flip-back{opacity:0;}
+.flip-back h3{color:var(--violet);}
+.flip-back p{color:var(--muted);}
+.flip-card:hover .flip-front{opacity:0;}
+.flip-card:hover .flip-back{opacity:1;}
+
+/* ---------- Forms (Contact / Sign in / Sign up) ---------- */
+.form-card{
+  max-width:520px;margin:0 auto;
+  background:var(--panel);border:1px solid var(--border);border-radius:8px;
+  padding:40px;box-shadow:0 12px 40px rgba(0,0,0,0.4);
+}
+.form-card h2{
+  font-family:'Orbitron',sans-serif;font-size:26px;font-weight:700;color:#fff;
+  text-align:center;margin-bottom:28px;
+}
+.field{text-align:left;margin-bottom:18px;}
+.field label{
+  display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;
+  letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:6px;
+}
+.field input, .field textarea{
+  width:100%;padding:12px 14px;
+  background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.12);
+  border-radius:4px;color:var(--text);font-family:'Space Grotesk',sans-serif;
+  font-size:15px;outline:none;transition:border-color .25s ease, box-shadow .25s ease;
+  resize:vertical;
+}
+.field input:focus, .field textarea:focus{
+  border-color:var(--cyan);box-shadow:0 0 0 3px rgba(75,245,224,0.12);
+}
+.field input::placeholder, .field textarea::placeholder{color:rgba(230,241,245,0.3);}
+.form-footnote{text-align:center;color:var(--muted);font-size:14px;margin-top:18px;}
+.form-footnote a{color:var(--cyan);text-decoration:none;}
+.form-footnote a:hover{text-decoration:underline;}
+
+/* ---------- Footer ---------- */
+.footer{
+  text-align:center;padding:44px 20px 34px;
+  background:linear-gradient(180deg, transparent, rgba(75,245,224,0.05));
+  border-top:1px solid var(--border);
+}
+.social-icons{margin-bottom:16px;display:flex;justify-content:center;gap:22px;flex-wrap:wrap;}
+.social-icons a{font-size:1.5rem;color:var(--muted);transition:all .25s ease;}
+.social-icons .whatsapp:hover{color:#25D366;text-shadow:0 0 12px #25D366;}
+.social-icons .github:hover{color:#fff;text-shadow:0 0 12px #fff;}
+.social-icons .instagram:hover{color:#e1306c;text-shadow:0 0 12px #e1306c;}
+.social-icons .linkedin:hover{color:#4ea1ff;text-shadow:0 0 12px #4ea1ff;}
+.social-icons .twitter:hover{color:#4bf5e0;text-shadow:0 0 12px #4bf5e0;}
+.social-icons .youtube:hover{color:#ff5d7a;text-shadow:0 0 12px #ff5d7a;}
+.social-icons .resume:hover{color:var(--violet);text-shadow:0 0 12px var(--violet);}
+.footer p{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted);letter-spacing:1px;}
+
+@media (max-width:860px){
+  nav.links{display:none;}
+  .page-heading{margin-top:44px;}
+}

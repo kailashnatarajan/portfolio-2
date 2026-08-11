@@ -1,203 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me - N.KAILASH</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="icon" type="image/png" href="Elegante Logo _N.K._ en Gradiente.png">
-  <style>
-    body {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: white;
-    }
-    html, body {
-  height: 100%;              /* Make body take full height */
-  display: flex;             /* Use flexbox */
-  flex-direction: column;    /* Stack content vertically */
-}
-
-main {
-  flex: 1; /* Push footer to the bottom */
-}
-    .gradient-bg {
-      background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
-    }
-    .animated-gradient {
-      background-size: 300% 300%;
-      animation: gradientMove 6s ease infinite;
-    }
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    @keyframes gradientText {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; } /* shift to the right */
-}
-
-.animated-text-gradient {
-  background: linear-gradient(
-    90deg, /* left to right gradient */
-    #48ec4b,
-    #ff3700,
-    #272adb,
-    #48ec4b
-  );
-  background-size: 200% 200%;
-  animation: gradientText 8s linear infinite;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.footer {
-  text-align: center;
-  padding: 30px 10px;
-  background: linear-gradient(90deg, #07d2b4, #fc25b8);
-  color: white;
-}
-
-.social-icons {
-  margin-bottom: 15px;
-}
-
-.social-icons .icon {
-  margin: 0 15px;
-  font-size: 2.2rem;
-  color: white;
-  transition: all 0.3s ease;
-}
-.social-icons .linkedin:hover {
-  color: #0a66c2;
-  text-shadow: 0 0 1px #0a66c2, 0 0 20px #0a66c2;
-}
-.social-icons .whatsapp:hover {
-  color: #25D366;
-  text-shadow: 0 0 10px #25D366, 0 0 20px #25D366;
-}
-.social-icons .github:hover {
-  color: #ffffff;
-  text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
-}
-
-.social-icons .instagram:hover {
-  color: #e1306c;
-  text-shadow: 0 0 10px #e1306c, 0 0 20px #e1306c;
-  animation: pulseGlow 1.5s infinite
-}
-
-.social-icons .twitter:hover {
-  color: #1da1f2;
-  text-shadow: 0 0 1px #1da1f2, 0 0 20px #1da1f2;
-}
-.social-icons .youtube:hover {
-  color: #ff0000;
-  text-shadow: 0 0 1px #ff0000, 0 0 20px #ff0000;
-}
-
-.social-icons .resume:hover {
-  color: #00ffcc;
-  text-shadow: 0 0 1px #00ffcc, 0 0 20px #00ffcc;
-}
-    .navbar-a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 18px;
-  font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease-in-out;
-}
-
-/* Glow + underline effect */
-.navbar-a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  left: 0;
-  bottom: -5px;
-  background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffff);
-  transition: width 0.4s ease-in-out;
-  border-radius: 2px;
-}
-
-.navbar-a:hover {
-  color: #00ffff; /* text color glow */
-  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff;
-}
-
-.navbar-a:hover::after {
-  width: 100%; /* underline expands smoothly */
-}
-
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Me — N.KAILASH</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="icon" type="image/png" href="Elegante Logo _N.K._ en Gradiente.png">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-<body class="font-sans">
-  <!-- Header -->
-  <header class="gradient-bg animated-gradient p-4 shadow-lg">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <a href="main.html" class="text-2xl font-bold animated-text-gradient">N.KAILASH</a>
-      <nav class="navbar-a space-x-6 hidden md:block">
-        <a href="main.html" class="hover:text-gray-200">Home</a>
-        <a href="about.html" class="hover:text-gray-200">About</a>
-        <a href="contact.html" class="hover:text-gray-200">Contact</a>
-      </nav>
-      <a href="signin.html" class="bg-pink-500 px-4 py-2 rounded-lg hover:bg-pink-600">Sign In</a>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a href="main.html" class="logo">N.KAILASH</a>
+    <nav class="links">
+      <a href="main.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="achievements.html">Achievements</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="signin.html" class="sign-in-btn">Sign In</a>
     </div>
-  </header>
+  </div>
+</header>
+
 <main>
-  <!-- About Me Section -->
-  <section class="max-w-7xl mx-auto px-4 py-16">
-    <h2 class="text-4xl font-extrabold mb-6 text-center">About Me</h2>
-    <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
-      <p class="mb-4 text-lg text-gray-300">
-        Hi, I’m <span class="text-pink-400 font-semibold">N.KAILASH</span>, an aspiring <strong>Data Scientist</strong> passionate about transforming raw data into meaningful insights.  
+  <section class="section">
+    <div class="page-heading">
+      <div class="eyebrow">Who I am</div>
+      <h2>About Me</h2>
+    </div>
+
+    <div class="panel-card" style="max-width:820px;margin:0 auto 80px;">
+      <p>
+        Hi, I'm <span class="accent">N.KAILASH</span>, an aspiring <strong>Data Scientist</strong> passionate about transforming raw data into meaningful insights.
       </p>
-      <p class="mb-4 text-lg text-gray-300">
-        I have strong skills in <span class="text-yellow-300">Python, C, C++, Java, HTML, CSS, JavaScript</span>, and solid expertise in <span class="text-green-300">Data Structures and Algorithms</span>.
+      <p>
+        I have strong skills in <span class="accent-cyan">Python, C, C++, Java, HTML, CSS, JavaScript</span>, and solid expertise in <span class="accent-violet">Data Structures and Algorithms</span>.
       </p>
-      <p class="mb-4 text-lg text-gray-300">
-        My goal is to work at the intersection of AI, software development, and problem-solving—building solutions that make a real-world impact.  
-        I’m also passionate about <strong>Full-Stack Development</strong>, <strong>Game Development</strong>, and <strong>Software Engineering</strong>.
+      <p>
+        My goal is to work at the intersection of AI, software development, and problem-solving — building solutions that make a real-world impact. I'm also passionate about <strong>Full-Stack Development</strong>, <strong>Game Development</strong>, and <strong>Software Engineering</strong>.
       </p>
-      <p class="text-lg text-gray-300">
-        Outside of coding, I enjoy exploring new technologies, solving challenging problems, and continuously improving my skills.  
+      <p>
+        Outside of coding, I enjoy exploring new technologies, solving challenging problems, and continuously improving my skills.
       </p>
     </div>
   </section>
 </main>
-  <!-- Footer -->
-  <footer class="footer">
+
+<footer class="footer">
   <div class="social-icons">
-    <a href="https://www.instagram.com/kailash_.kanth" target="_blank" class="icon instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://wa.me/918489091701" target="_blank" class="icon whatsapp">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-    <a href="https://www.youtube.com" target="_blank" class="icon youtube">
-      <i class="fab fa-youtube"></i>
-    </a>
-    <a href="https://www.linkedin.com" target="_blank" class="icon linkedin">
-      <i class="fab fa-linkedin"></i>
-    </a>
-    <a href="https://github.com" target="_blank" class="icon github">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://twitter.com" target="_blank" class="icon twitter">
-      <i class="fab fa-twitter"></i>
-    <a href="" target="_blank" class="icon resume">
-      <i class="fas fa-file-alt"></i>
-    </a>
-    </a>
+    <a href="https://www.instagram.com/kailash_.kanth" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/918489091701" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.youtube.com" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.linkedin.com" target="_blank" class="linkedin"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com" target="_blank" class="github"><i class="fab fa-github"></i></a>
+    <a href="https://twitter.com" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+    <a href="KailashResumeSimple.pdf" target="_blank" class="resume"><i class="fas fa-file-alt"></i></a>
+    <a href="KailashResume.pdf" target="_blank" class="resume"><i class="fas fa-file-alt"></i></a>
   </div>
-  <p>© 2025 N.KAILASH. All rights reserved.</p>
+  <p>© 2026 N.KAILASH. All rights reserved.</p>
 </footer>
+
 </body>
 </html>
-
-
-
-
